@@ -70,7 +70,7 @@ public class Application implements Runnable {
         return List.of(treballadorOnline, treballadorPresencial, composedTreballadorOnline, composedTreballadorPresencial);
     }
 
-    @Deprecated
+    @SuppressWarnings("deprecation")
     private static void methodThatCallsSomethingDeprecated() {
 
         TreballadorOnline treballadorOnline = (TreballadorOnline) new TreballadorAbstractFactory(
