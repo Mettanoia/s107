@@ -11,8 +11,11 @@ public class TreballadorOnline extends AbstractTreballador {
     }
 
     @Override
+    @Deprecated
     public OptionalDouble calcularSou(double workedHours) {
         return OptionalDouble.of(this.eurPerHour * workedHours + ONLINE_SALARY_PLUS);
     }
+
+
 
 }

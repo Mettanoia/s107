@@ -19,7 +19,6 @@ public class Application implements Runnable {
 
     @Override
 
-    @SuppressWarnings("deprecation")
     public void run() {
 
         List<Treballador> treballadorList = getTreballadors();
@@ -40,6 +39,12 @@ public class Application implements Runnable {
         Treballador treballadorOnline = new TreballadorAbstractFactory(
                 () -> new TreballadorOnline("Nom", "Cognom", 23.9)
         ).getTreballador();
+
+
+        // EJERCICIO DEL DEPRECATED
+
+        methodThatCallsSomethingDeprecated();
+
 
         Treballador treballadorPresencial = new TreballadorAbstractFactory(
                 () -> new TreballadorPresencial("Nom", "Cognom", 23.9)
@@ -63,5 +68,16 @@ public class Application implements Runnable {
         // reuse code, composition is, and in this case lambda expressions simply allow us to have a clearer syntax
 
         return List.of(treballadorOnline, treballadorPresencial, composedTreballadorOnline, composedTreballadorPresencial);
+    }
+
+    @Deprecated
+    private static void methodThatCallsSomethingDeprecated() {
+
+        TreballadorOnline treballadorOnline = (TreballadorOnline) new TreballadorAbstractFactory(
+                () -> new TreballadorOnline("Nom", "Cognom", 23.0)
+        ).getTreballador();
+
+        treballadorOnline.calcularSou(4);
+
     }
 }
