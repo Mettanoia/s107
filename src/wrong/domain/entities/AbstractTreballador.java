@@ -39,7 +39,6 @@ public abstract class AbstractTreballador implements Treballador{
     @Override
     public abstract OptionalDouble calcularSou(double workedHours);
 
-    @Override
     public String toString() {
         return "AbstractTreballador{" +
                 "name='" + name + '\'' +
